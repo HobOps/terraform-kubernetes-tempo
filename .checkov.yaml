@@ -1,0 +1,12 @@
+# Checkov configuration for this Terraform module.
+# See https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html
+framework:
+  - terraform
+
+# Skip generated/vendored Terraform working dirs.
+skip-path:
+  - .*/\.terraform/.*
+
+# Add explicit check IDs here (e.g. CKV_...) with a rationale as they are
+# reviewed and consciously accepted.
+skip-check: []

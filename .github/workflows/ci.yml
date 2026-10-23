@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  # No path filters: required status checks must always report for branch protection.
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Shared pipeline: preflight (PR gates), terraform-lint, security, release.
+  # See https://github.com/HobOps/github-actions
+  ci:
+    uses: HobOps/github-actions/.github/workflows/terraform-module-ci.yml@v1
+    permissions:
+      contents: write # release job pushes tags / creates releases
+      pull-requests: read # commitlint lists the PR commits
