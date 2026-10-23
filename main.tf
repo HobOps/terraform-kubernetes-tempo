@@ -146,9 +146,11 @@ locals {
           proxy_pass ${local.tempo_otlp_http}/v1/traces;
         }
         # Query API (Grafana): /api/echo, /api/search, /api/traces/<id>, /api/v2/...
+        # No URI part and no variables in proxy_pass: nginx then forwards the
+        # request URI as is and resolves the upstream at startup (no resolver).
         location ^~ /api {
           proxy_set_header X-Scope-OrgID $remote_user;
-          proxy_pass ${local.tempo_http}$request_uri;
+          proxy_pass ${local.tempo_http};
         }
       }
     }
