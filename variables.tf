@@ -86,9 +86,9 @@ variable "storage_size" {
 }
 
 variable "gateway_image" {
-  description = "nginx image of the gateway (unprivileged, listens on 8080)."
+  description = "nginx image of the gateway (unprivileged, listens on 8080), pinned by digest."
   type        = string
-  default     = "docker.io/nginxinc/nginx-unprivileged:1.29-alpine"
+  default     = "docker.io/nginxinc/nginx-unprivileged:1.29-alpine@sha256:0c79d56aee561a1d81c63f00eee5fb5fe29279560cdc55e91425133104c7fbe6"
 }
 
 variable "gateway_replicas" {

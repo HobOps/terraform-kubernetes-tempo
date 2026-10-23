@@ -107,7 +107,7 @@ See [`examples/complete`](examples/complete).
 | `release_name` | Helm release name; the gateway Service is `<release>-gateway` | `tempo` |
 | `chart_repository` / `chart_version` | `grafana-community/tempo` chart | `https://grafana-community.github.io/helm-charts` / `3.2.1` |
 | `storage_class` / `storage_size` | Volume of the Tempo pod | cluster default / `10Gi` |
-| `gateway_image` / `gateway_replicas` / `gateway_max_body_size` | nginx gateway | `nginx-unprivileged:1.29-alpine` / `1` / `32m` |
+| `gateway_image` / `gateway_replicas` / `gateway_max_body_size` | nginx gateway | `nginx-unprivileged:1.29-alpine@sha256:…` / `1` / `32m` |
 | `httproute` | `hostname`, `gateway_name`, `gateway_namespace`, `section_name`, optional `tenant_hostnames` (`domain`, `prefix` = `tempo`, `suffix_length` = 8) | `null` |
 | `values` | Extra chart values, merged after the module's | `{}` |
 

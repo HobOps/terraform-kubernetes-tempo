@@ -303,8 +303,9 @@ resource "kubernetes_deployment" "gateway" {
 
       spec {
         container {
-          name  = "nginx"
-          image = var.gateway_image
+          name              = "nginx"
+          image             = var.gateway_image
+          image_pull_policy = "Always"
 
           port {
             name           = "http"
@@ -350,7 +351,7 @@ resource "kubernetes_deployment" "gateway" {
 
           resources {
             requests = { cpu = "10m", memory = "32Mi" }
-            limits   = { memory = "128Mi" }
+            limits   = { cpu = "500m", memory = "128Mi" }
           }
 
           security_context {
