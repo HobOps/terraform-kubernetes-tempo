@@ -60,7 +60,7 @@ Transparency logs; external-dns still publishes one record per hostname.
 
 ```hcl
 module "tempo" {
-  source = "git::https://github.com/HobOps/terraform-kubernetes-tempo.git?ref=v0.0.1"
+  source = "git::https://github.com/HobOps/terraform-kubernetes-tempo.git?ref=v0.0.2"
 
   tenants = {
     acme   = {}
